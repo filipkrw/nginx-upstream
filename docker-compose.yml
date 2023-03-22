@@ -1,0 +1,19 @@
+version: "3"
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.23.1-alpine
+    ports:
+      - 8081:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+  web1:
+    container_name: web1
+    platform: linux/amd64
+    image: strm/helloworld-http
+
+  web2:
+    container_name: web2
+    platform: linux/amd64
+    image: strm/helloworld-http
